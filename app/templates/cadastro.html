@@ -1,6 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
     <title>Cadastro de Usuário</title>
 </head>
 <body>
@@ -22,8 +25,10 @@
         <input type="submit" value="Cadastrar">
     </form>
 
-    <li><a href="{% url 'index' %}">Página Inicial</a></li>
-    <li><a href="{% url 'consulta_usuario' %}">Consulta de Usuário</a></li>
-    
+    <ul>
+        <li><a href="{% url 'index' %}">Página Inicial</a></li>
+        <li><a href="{% url 'consulta_usuario' %}">Consulta de Usuário</a></li>
+    </ul>
+
 </body>
 </html>

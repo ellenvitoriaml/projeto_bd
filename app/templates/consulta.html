@@ -1,6 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
     <title>Consulta de Usuário</title>
 </head>
 <body>
@@ -21,19 +24,25 @@
             <p>Nome: {{ usuario_encontrado.nome }}</p>
             <p>Data de Nascimento: {{ usuario_encontrado.data_nascimento }}</p>
 
-            <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
-            <li><a href="{% url 'index' %}">Página Inicial</a></li>
+            <ul>
+                <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+                <li><a href="{% url 'index' %}">Página Inicial</a></li>
+            </ul>
 
         {% elif mensagem %}
 
             <p>{{ mensagem }}</p>
-            <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+            <ul>
+                <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+            </ul>
 
         {% endif %}
     {% else %}
 
-        <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
-        <li><a href="{% url 'index' %}">Página Inicial</a></li>
+        <ul>
+            <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+            <li><a href="{% url 'index' %}">Página Inicial</a></li>
+        </ul>
         
     {% endif %}
 </body>

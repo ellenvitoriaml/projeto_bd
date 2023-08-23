@@ -1,6 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>Meu Projeto Django</title>
 </head>
 <body>
@@ -11,7 +13,6 @@
     <ul>
         <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
         <li><a href="{% url 'consulta_usuario' %}">Consulta de Usuário</a></li>
-        <!-- Adicione mais links para outras páginas aqui, se necessário -->
     </ul>
 </body>
 </html>
