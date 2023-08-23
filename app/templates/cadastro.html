@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+
+    <h1>Cadastro de Usuário</h1>
+    
+    <form method="post" action="{% url 'criar_usuario' %}">
+        {% csrf_token %}
+        
+        <label for="cpf">CPF:</label>
+        <input type="number" name="cpf" required><br>
+        
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required><br>
+        
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" name="data_nascimento" required><br>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <li><a href="{% url 'index' %}">Página Inicial</a></li>
+    <li><a href="{% url 'consulta_usuario' %}">Consulta de Usuário</a></li>
+    
+</body>
+</html>

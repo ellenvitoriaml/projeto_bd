@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta de Usuário</title>
+</head>
+<body>
+    <h1>Consulta de Usuário</h1>
+    <form method="get" action="{% url 'consulta_usuario' %}">
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf"><br>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome"><br>
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if request.GET.cpf or request.GET.nome %}
+        {% if usuario_encontrado %}
+
+            <h2>Dados do Usuário Encontrado:</h2>
+            <p>CPF: {{ usuario_encontrado.cpf }}</p>
+            <p>Nome: {{ usuario_encontrado.nome }}</p>
+            <p>Data de Nascimento: {{ usuario_encontrado.data_nascimento }}</p>
+
+            <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+            <li><a href="{% url 'index' %}">Página Inicial</a></li>
+
+        {% elif mensagem %}
+
+            <p>{{ mensagem }}</p>
+            <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+
+        {% endif %}
+    {% else %}
+
+        <li><a href="{% url 'criar_usuario' %}">Cadastro de Usuário</a></li>
+        <li><a href="{% url 'index' %}">Página Inicial</a></li>
+        
+    {% endif %}
+</body>
+</html>
